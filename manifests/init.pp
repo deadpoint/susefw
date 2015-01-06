@@ -3,7 +3,7 @@
 class susefw {
     include susefw::params
     #
-    if $::operatingsystemrelease >= 12.3 {
+    if $::operatingsystemrelease >= 12.3 or ($::operatingsystem == 'SLES' and $::operatingsystemrelease >= 12.0){
         Service { provider => 'systemd' }
     }
 
